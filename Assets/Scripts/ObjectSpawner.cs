@@ -3,14 +3,9 @@ using UnityEngine;
 public class ObjectSpawner : MonoBehaviour
 {
     public GameObject[] objectPrefabs; // Assign your object prefabs here
-    private float spawnInterval = 2.0f; // Initial spawn interval in seconds
-    private float initialSpawnInterval;
+    public float spawnInterval = 2.0f; // Initial spawn interval in seconds
+    public Vector2 spawnDirection = Vector2.left; // Default spawn direction
     private float timer;
-
-    void Start()
-    {
-        initialSpawnInterval = spawnInterval;
-    }
 
     void Update()
     {
@@ -26,16 +21,23 @@ public class ObjectSpawner : MonoBehaviour
     void SpawnObject()
     {
         int index = Random.Range(0, objectPrefabs.Length);
-        Instantiate(objectPrefabs[index], transform.position, Quaternion.identity);
+        GameObject spawnedObject = Instantiate(objectPrefabs[index], transform.position, Quaternion.identity);
+
+        // Apply movement direction
+        ObjectMovement objectMovement = spawnedObject.GetComponent<ObjectMovement>();
+        if (objectMovement != null)
+        {
+            objectMovement.SetMovementDirection(spawnDirection);
+        }
     }
 
-    public void IncreaseSpawnRate(float multiplier)
+    public void SetSpawnInterval(float newInterval)
     {
-        spawnInterval /= multiplier;
+        spawnInterval = newInterval;
     }
 
-    public void ResetSpawnRate()
+    public void SetSpawnDirection(Vector2 newDirection)
     {
-        spawnInterval = initialSpawnInterval;
+        spawnDirection = newDirection;
     }
 }
