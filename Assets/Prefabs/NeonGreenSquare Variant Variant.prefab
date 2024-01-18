@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1655938163, guid: e48407605db6f1e4db9d1ad11592ef3f, type: 3}
+      propertyPath: moveSpeed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 859894753534722442, guid: e48407605db6f1e4db9d1ad11592ef3f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -59,8 +63,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 859894753538562778, guid: e48407605db6f1e4db9d1ad11592ef3f, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 859894753539450546, guid: e48407605db6f1e4db9d1ad11592ef3f, type: 3}
       propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 859894753539450546, guid: e48407605db6f1e4db9d1ad11592ef3f, type: 3}
+      propertyPath: m_UsedByComposite
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 859894753539450546, guid: e48407605db6f1e4db9d1ad11592ef3f, type: 3}

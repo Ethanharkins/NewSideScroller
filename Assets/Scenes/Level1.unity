@@ -352,6 +352,7 @@ GameObject:
   - component: {fileID: 162497504}
   - component: {fileID: 162497503}
   - component: {fileID: 162497502}
+  - component: {fileID: 162497505}
   m_Layer: 5
   m_Name: Restart
   m_TagString: Untagged
@@ -423,9 +424,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 828890796}
-        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
-        m_MethodName: RestartLevel
+      - m_Target: {fileID: 828890800}
+        m_TargetAssemblyTypeName: SceneResetter, Assembly-CSharp
+        m_MethodName: ResetScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -473,6 +474,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162497500}
   m_CullTransparentMesh: 1
+--- !u!114 &162497505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162497500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9337405eb81781429eb2d1c3190794a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneReset: {fileID: 0}
 --- !u!1 &182689309
 GameObject:
   m_ObjectHideFlags: 0
@@ -672,16 +686,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 828890795}
-        m_TargetAssemblyTypeName: ReturnToMenu, Assembly-CSharp
-        m_MethodName: LoadMainMenu
-        m_Mode: 1
+      - m_Target: {fileID: 828890799}
+        m_TargetAssemblyTypeName: MyGameController, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: MainMenu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &280204844
@@ -1471,9 +1485,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 828890796}
-        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
-        m_MethodName: RestartLevel
+      - m_Target: {fileID: 828890800}
+        m_TargetAssemblyTypeName: SceneResetter, Assembly-CSharp
+        m_MethodName: ResetScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1835,8 +1849,7 @@ MonoBehaviour:
   - {fileID: 7720305932202059312, guid: 96f47a665950a1f47b9cce64cea36c2c, type: 3}
   - {fileID: 1137867123296153530, guid: f31223235a51a1d4c9122455965856ed, type: 3}
   - {fileID: 8858143009416463209, guid: f37fe3039c74b7f4fa8d0840e42a7a60, type: 3}
-  spawnInterval: 3
-  spawnDirection: {x: -1, y: 0}
+  spawnInterval: 4
 --- !u!1 &774238448
 GameObject:
   m_ObjectHideFlags: 0
@@ -2027,8 +2040,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 828890797}
-  - component: {fileID: 828890796}
   - component: {fileID: 828890795}
+  - component: {fileID: 828890799}
+  - component: {fileID: 828890798}
+  - component: {fileID: 828890800}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2048,18 +2063,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22730996bff5d3741afadb35108b85a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &828890796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828890794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c140a01c4a07a1428fc4ee1279ce390, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &828890797
 Transform:
   m_ObjectHideFlags: 0
@@ -2075,6 +2078,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &828890798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828890794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2266a6e84abfb2b4184747c1d2a6f24b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &828890799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828890794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba9754e365dda74e82c6ff7517734af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &828890800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828890794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183328f0040df7445a8aac850959a466, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &896566860
 GameObject:
   m_ObjectHideFlags: 0
@@ -2242,7 +2281,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 828890796}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -3206,7 +3245,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1290351955}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.306806, y: -5.93, z: 0}
+  m_LocalPosition: {x: 13.306806, y: -5.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3231,7 +3270,6 @@ MonoBehaviour:
   - {fileID: 1137867123296153530, guid: f31223235a51a1d4c9122455965856ed, type: 3}
   - {fileID: 8858143009416463209, guid: f37fe3039c74b7f4fa8d0840e42a7a60, type: 3}
   spawnInterval: 4
-  spawnDirection: {x: -1, y: 2}
 --- !u!1 &1292707633
 GameObject:
   m_ObjectHideFlags: 0
@@ -3378,8 +3416,7 @@ MonoBehaviour:
   - {fileID: 7720305932202059312, guid: 96f47a665950a1f47b9cce64cea36c2c, type: 3}
   - {fileID: 1137867123296153530, guid: f31223235a51a1d4c9122455965856ed, type: 3}
   - {fileID: 8858143009416463209, guid: f37fe3039c74b7f4fa8d0840e42a7a60, type: 3}
-  spawnInterval: 3
-  spawnDirection: {x: -1, y: 0}
+  spawnInterval: 4
 --- !u!1 &1335761911
 GameObject:
   m_ObjectHideFlags: 0
@@ -4327,8 +4364,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 828890796}
-        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+      - m_Target: {fileID: 828890799}
+        m_TargetAssemblyTypeName: MyGameController, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -4427,6 +4464,10 @@ PrefabInstance:
     - target: {fileID: 5567026366683778876, guid: 784f7323a42ed1a4e96a2c8d6157891f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567026366683778877, guid: 784f7323a42ed1a4e96a2c8d6157891f, type: 3}
+      propertyPath: spawnInterval
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5567026366683778877, guid: 784f7323a42ed1a4e96a2c8d6157891f, type: 3}
       propertyPath: objectPrefabs.Array.size

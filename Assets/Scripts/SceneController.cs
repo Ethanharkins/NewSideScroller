@@ -10,8 +10,16 @@ public class SceneController : MonoBehaviour
 
     public void RestartLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // Get the name of the currently active scene
+        string currentSceneName = SceneManager.GetActiveScene().name;
+
+        // Reload the current scene
+        SceneManager.LoadScene(currentSceneName);
+
+        // Reset the Time.timeScale
+        Time.timeScale = 1.0f;
     }
+
 
     public void QuitGame()
     {

@@ -7,6 +7,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1626538066, guid: b26188af9d70d944e8b9c33083f4fabc, type: 3}
+      propertyPath: moveSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1626538066, guid: b26188af9d70d944e8b9c33083f4fabc, type: 3}
+      propertyPath: movementDirection.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1626538066, guid: b26188af9d70d944e8b9c33083f4fabc, type: 3}
+      propertyPath: movementDirection.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102404327600414130, guid: b26188af9d70d944e8b9c33083f4fabc, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7182580793248799730, guid: b26188af9d70d944e8b9c33083f4fabc, type: 3}
       propertyPath: m_Size.x
       value: 5.12
@@ -25,6 +41,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7182580793248799730, guid: b26188af9d70d944e8b9c33083f4fabc, type: 3}
       propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7182580793267031680, guid: b26188af9d70d944e8b9c33083f4fabc, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: f87de6ee6747479478012f00e6239904, type: 2}
+    - target: {fileID: 7182580793267031680, guid: b26188af9d70d944e8b9c33083f4fabc, type: 3}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7182580793269719268, guid: b26188af9d70d944e8b9c33083f4fabc, type: 3}

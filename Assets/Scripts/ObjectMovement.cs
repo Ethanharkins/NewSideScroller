@@ -3,27 +3,34 @@ using UnityEngine;
 public class ObjectMovement : MonoBehaviour
 {
     public float moveSpeed = 5.0f;
-    private Vector2 movementDirection;
-
-    void Start()
-    {
-        // Default direction is left, but can be overridden by the spawner
-        movementDirection = Vector2.left;
-    }
 
     void Update()
     {
-        transform.Translate(movementDirection * moveSpeed * Time.deltaTime);
-    }
+        transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
 
-    public void SetInitialDirection(Vector2 direction)
-    {
-        movementDirection = direction.normalized;
+        // Check if the object is off-screen and destroy it
+        if (!IsObjectVisible())
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Collision handling logic...
+        // Check if the collision is with the player
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Handle collision with player here
+            // For example, destroy the object
+            Destroy(gameObject);
+        }
+    }
+
+    bool IsObjectVisible()
+    {
+        // Check if the object is still within the camera's view
+        Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
+        return viewPos.x > 0 && viewPos.x < 1 && viewPos.y > 0 && viewPos.y < 1;
     }
 
     // Other methods...
