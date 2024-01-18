@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
 {
-    public GameObject[] objectPrefabs; // Assign your object prefabs here
-    public float spawnInterval = 2.0f; // Initial spawn interval in seconds
-    public Vector2 spawnDirection = Vector2.left; // Default spawn direction
+    public GameObject[] objectPrefabs;
+    public float spawnInterval = 2.0f;
     private float timer;
 
     void Update()
@@ -23,21 +22,14 @@ public class ObjectSpawner : MonoBehaviour
         int index = Random.Range(0, objectPrefabs.Length);
         GameObject spawnedObject = Instantiate(objectPrefabs[index], transform.position, Quaternion.identity);
 
-        // Apply movement direction
+        // Set the initial direction to left
+        Vector2 spawnDirection = Vector2.left; // Left direction in 2D
         ObjectMovement objectMovement = spawnedObject.GetComponent<ObjectMovement>();
         if (objectMovement != null)
         {
-            objectMovement.SetMovementDirection(spawnDirection);
+            objectMovement.SetInitialDirection(spawnDirection);
         }
     }
 
-    public void SetSpawnInterval(float newInterval)
-    {
-        spawnInterval = newInterval;
-    }
 
-    public void SetSpawnDirection(Vector2 newDirection)
-    {
-        spawnDirection = newDirection;
-    }
 }

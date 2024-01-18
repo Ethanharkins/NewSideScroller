@@ -8,6 +8,7 @@ TagManager:
   - Green
   - Blue
   - Enemy
+  - Border
   layers:
   - Default
   - TransparentFX

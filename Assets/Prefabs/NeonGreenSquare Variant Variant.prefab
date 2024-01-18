@@ -60,6 +60,10 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 859894753539450546, guid: e48407605db6f1e4db9d1ad11592ef3f, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 859894753539450546, guid: e48407605db6f1e4db9d1ad11592ef3f, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
       objectReference: {fileID: 0}
