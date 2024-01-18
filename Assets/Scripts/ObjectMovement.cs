@@ -3,7 +3,13 @@ using UnityEngine;
 public class ObjectMovement : MonoBehaviour
 {
     public float moveSpeed = 5.0f;
-    private Vector2 movementDirection = Vector2.left; // Default direction
+    private Vector2 movementDirection;
+
+    void Start()
+    {
+        // Default direction is left, but can be overridden by the spawner
+        movementDirection = Vector2.left;
+    }
 
     void Update()
     {
@@ -12,26 +18,13 @@ public class ObjectMovement : MonoBehaviour
 
     public void SetInitialDirection(Vector2 direction)
     {
-        movementDirection = direction;
-    }
-
-
-
-public void ReverseDirection()
-    {
-        movementDirection *= -1;
-    }
-
-    void OnBecameInvisible()
-    {
-        Destroy(gameObject);
+        movementDirection = direction.normalized;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Destroy(gameObject);
-        }
+        // Collision handling logic...
     }
+
+    // Other methods...
 }

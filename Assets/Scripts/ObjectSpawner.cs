@@ -4,6 +4,7 @@ public class ObjectSpawner : MonoBehaviour
 {
     public GameObject[] objectPrefabs;
     public float spawnInterval = 2.0f;
+    public Vector2 spawnDirection = Vector2.left; // Direction adjustable in the Inspector
     private float timer;
 
     void Update()
@@ -22,14 +23,11 @@ public class ObjectSpawner : MonoBehaviour
         int index = Random.Range(0, objectPrefabs.Length);
         GameObject spawnedObject = Instantiate(objectPrefabs[index], transform.position, Quaternion.identity);
 
-        // Set the initial direction to left
-        Vector2 spawnDirection = Vector2.left; // Left direction in 2D
+        // Set the initial direction for the spawned object
         ObjectMovement objectMovement = spawnedObject.GetComponent<ObjectMovement>();
         if (objectMovement != null)
         {
-            objectMovement.SetInitialDirection(spawnDirection);
+            objectMovement.SetInitialDirection(spawnDirection.normalized);
         }
     }
-
-
 }
