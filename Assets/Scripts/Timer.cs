@@ -43,3 +43,4 @@ public class Timer : MonoBehaviour
         winMenuCanvas.SetActive(true); // Show win menu
     }
 }
+

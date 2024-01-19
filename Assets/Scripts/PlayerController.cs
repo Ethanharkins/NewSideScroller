@@ -2,13 +2,27 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Add your variables and methods here as needed for your game.
+    private bool isInvulnerable = false;
+    private float invulnerabilityDuration = 3.0f;
+    private float invulnerabilityTimer = 0.0f;
 
     public Transform[] movePoints;
     private int currentPointIndex = 0;
 
     void Update()
     {
+        if (isInvulnerable)
+        {
+            invulnerabilityTimer -= Time.deltaTime;
+
+            if (invulnerabilityTimer <= 0)
+            {
+                isInvulnerable = false;
+                Time.timeScale = 1.0f; // Reset time scale to normal when invulnerability ends
+            }
+        }
+
+        // Player movement logic
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             MoveToNextPoint(-1);
@@ -26,15 +40,10 @@ public class PlayerController : MonoBehaviour
         transform.position = movePoints[currentPointIndex].position;
     }
 
-    // Add your other methods and variables here.
-
-    public void EnableControl()
+    public void ActivateInvulnerabilityAndSpeedBoost()
     {
-        // Implement the logic to enable player control here
-    }
-
-    public void DisableControl()
-    {
-        // Implement the logic to disable player control here
+        isInvulnerable = true;
+        invulnerabilityTimer = invulnerabilityDuration;
+        Time.timeScale = 2.0f; // Double the time scale
     }
 }
