@@ -2,17 +2,15 @@ using UnityEngine;
 
 public class SpecialObject : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (collider.gameObject.CompareTag("Player"))
         {
-            PlayerController playerController = other.GetComponent<PlayerController>();
+            PlayerController playerController = collider.gameObject.GetComponent<PlayerController>();
             if (playerController != null)
             {
-                playerController.ActivateInvulnerabilityAndSpeedBoost();
-
-                // Destroy the special object after activating the boost
-                Destroy(gameObject);
+                playerController.ActivatePowerUp();
+                Destroy(gameObject); // Optional: Destroy the special object
             }
         }
     }

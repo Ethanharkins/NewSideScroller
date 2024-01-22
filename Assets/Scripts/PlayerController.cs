@@ -1,35 +1,41 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
+    public Transform[] movePoints; // Assign your move points here
+    private int currentPointIndex = 0;
     private bool isInvulnerable = false;
     private float invulnerabilityDuration = 3.0f;
-    private float invulnerabilityTimer = 0.0f;
+    private LivesUIManager livesUIManager; // Reference to the Lives UI Manager
+    private DeathTimer deathTimer; // Reference to the DeathTimer script
+    private float initialTimerValue = 40f; // Set this to your initial timer value
+    private Timer gameTimer; // Reference to your existing Timer script
 
-    public Transform[] movePoints;
-    private int currentPointIndex = 0;
+    void Start()
+    {
+        livesUIManager = FindObjectOfType<LivesUIManager>(); // Find and assign the Lives UI Manager
+        deathTimer = FindObjectOfType<DeathTimer>(); // Find the DeathTimer in the scene
+        gameTimer = FindObjectOfType<Timer>(); // Find the Timer in the scene
+    }
 
     void Update()
     {
-        if (isInvulnerable)
-        {
-            invulnerabilityTimer -= Time.deltaTime;
+        HandleMovement();
+    }
 
-            if (invulnerabilityTimer <= 0)
+    void HandleMovement()
+    {
+        if (!isInvulnerable)
+        {
+            if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                isInvulnerable = false;
-                Time.timeScale = 1.0f; // Reset time scale to normal when invulnerability ends
+                MoveToNextPoint(-1); // Move up
             }
-        }
-
-        // Player movement logic
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            MoveToNextPoint(-1);
-        }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            MoveToNextPoint(1);
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                MoveToNextPoint(1); // Move down
+            }
         }
     }
 
@@ -40,10 +46,35 @@ public class PlayerController : MonoBehaviour
         transform.position = movePoints[currentPointIndex].position;
     }
 
-    public void ActivateInvulnerabilityAndSpeedBoost()
+    public void ActivatePowerUp()
+    {
+        if (!isInvulnerable)
+        {
+            StartCoroutine(PowerUpRoutine());
+        }
+    }
+
+    private IEnumerator PowerUpRoutine()
     {
         isInvulnerable = true;
-        invulnerabilityTimer = invulnerabilityDuration;
         Time.timeScale = 2.0f; // Double the time scale
+        if (livesUIManager != null) livesUIManager.SetLivesLocked(true);
+
+        yield return new WaitForSecondsRealtime(invulnerabilityDuration); // Wait for 3 seconds in real time
+
+        isInvulnerable = false;
+        Time.timeScale = 1.0f; // Reset time scale
+        if (livesUIManager != null) livesUIManager.SetLivesLocked(false);
     }
+
+    // Method to handle the player's death
+    public void HandleDeath()
+    {
+        float timeLived = initialTimerValue - gameTimer.GetCurrentTime();
+        deathTimer.SetTimeLived(timeLived);
+
+        // Other death handling logic...
+    }
+
+    // Collision handling, if needed...
 }

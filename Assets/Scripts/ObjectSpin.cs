@@ -6,6 +6,7 @@ public class ObjectSpin : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(0, 0, spinSpeed * Time.deltaTime);
+        // Rotate counterclockwise around the Z-axis
+        transform.Rotate(0, 0, -spinSpeed * Time.deltaTime);
     }
 }

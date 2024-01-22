@@ -42,5 +42,10 @@ public class Timer : MonoBehaviour
         Time.timeScale = 0; // Stop time
         winMenuCanvas.SetActive(true); // Show win menu
     }
-}
 
+    // Method to get the current time remaining
+    public float GetCurrentTime()
+    {
+        return timeRemaining;
+    }
+}

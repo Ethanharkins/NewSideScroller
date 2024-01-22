@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1655938163, guid: e48407605db6f1e4db9d1ad11592ef3f, type: 3}
+      propertyPath: spinSpeed
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 859894753534722442, guid: e48407605db6f1e4db9d1ad11592ef3f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -62,6 +66,10 @@ PrefabInstance:
     - target: {fileID: 859894753534946464, guid: e48407605db6f1e4db9d1ad11592ef3f, type: 3}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 859894753538562778, guid: e48407605db6f1e4db9d1ad11592ef3f, type: 3}
+      propertyPath: m_Constraints
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 859894753538562778, guid: e48407605db6f1e4db9d1ad11592ef3f, type: 3}
       propertyPath: m_CollisionDetection
@@ -125,21 +133,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e48407605db6f1e4db9d1ad11592ef3f, type: 3}
---- !u!1 &8858143009416463209 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 859894753534946464, guid: e48407605db6f1e4db9d1ad11592ef3f, type: 3}
-  m_PrefabInstance: {fileID: 8142657224016981961}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8892632474690624504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8858143009416463209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0b043e9a61930d4f86d2f91a192ce10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spinSpeed: 9
