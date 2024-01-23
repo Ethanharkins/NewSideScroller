@@ -7,17 +7,19 @@ public class PlayerHealth : MonoBehaviour
     public Image[] hearts; // UI Images for the hearts
     public GameObject gameOverCanvas; // Game Over Canvas
     public GameObject livesCanvas; // Lives Canvas
+    private PlayerController playerController; // Reference to the PlayerController
 
     void Start()
     {
         gameOverCanvas.SetActive(false);
         livesCanvas.SetActive(true);
+        playerController = GetComponent<PlayerController>(); // Initialize the reference
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // Example: If the player collides with an enemy or hazard
-        if (other.gameObject.CompareTag("Enemy"))
+        // Check if player is invulnerable
+        if (other.gameObject.CompareTag("Enemy") && !playerController.IsInvulnerable())
         {
             LoseLife();
         }

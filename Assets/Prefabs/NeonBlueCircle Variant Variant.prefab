@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3988702342888791926, guid: a8819ad5fc30f4046b13f0928ef88548, type: 3}
       propertyPath: m_Name
-      value: NeonBlueCircle Variant
+      value: NeonBlueCircle Variant Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3988702342909641232, guid: a8819ad5fc30f4046b13f0928ef88548, type: 3}
       propertyPath: m_Size.x
@@ -81,3 +81,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8819ad5fc30f4046b13f0928ef88548, type: 3}
+--- !u!1 &2583337153885692094 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3988702342888791926, guid: a8819ad5fc30f4046b13f0928ef88548, type: 3}
+  m_PrefabInstance: {fileID: 1478144749873102792}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-6116632571694788365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2583337153885692094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a6ec24feed3c7e4bbf870aef901dcb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  frequency: 1
+  magnitude: 1

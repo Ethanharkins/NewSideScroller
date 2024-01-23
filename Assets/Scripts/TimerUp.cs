@@ -1,31 +1,38 @@
 using UnityEngine;
-using TMPro;
+using TMPro;  // Ensure you have the TextMeshPro namespace
 
 public class TimerUp : MonoBehaviour
 {
-    public TextMeshProUGUI timerText; // Assign your UI TextMeshPro element here
-    private float elapsedTime;
-    private bool isPlayerAlive = true; // Player's status
+    public float timeElapsed = 0; // Time elapsed
+    public TextMeshProUGUI timerText; // Assign this in the Unity Inspector
 
     void Update()
     {
-        if (isPlayerAlive)
+        timeElapsed += Time.deltaTime;
+        UpdateTimerDisplay();
+    }
+
+    void UpdateTimerDisplay()
+    {
+        // Update the timer display
+        if (timerText != null)
         {
-            elapsedTime += Time.deltaTime;
-            DisplayTime(elapsedTime);
+            timerText.text = FormatTime(timeElapsed);
         }
     }
 
-    void DisplayTime(float timeToDisplay)
+    public float GetElapsedTime()
     {
-        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
-        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
-
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        return timeElapsed;
     }
 
-    public void PlayerDied()
+    string FormatTime(float time)
     {
-        isPlayerAlive = false;
+        // Format the time into minutes:seconds
+        int minutes = Mathf.FloorToInt(time / 60);
+        int seconds = Mathf.FloorToInt(time % 60);
+        return string.Format("{0:00}:{1:00}", minutes, seconds);
     }
+
+    // Any other methods you need...
 }

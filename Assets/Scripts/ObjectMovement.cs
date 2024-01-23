@@ -9,20 +9,11 @@ public class ObjectMovement : MonoBehaviour
         // Move the object from right to left
         transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
 
-        // Custom rotation logic here
-        PerformCustomRotation();
-
         // Check if the object is off-screen and destroy it
         if (!IsObjectVisible())
         {
             Destroy(gameObject);
         }
-    }
-
-    void PerformCustomRotation()
-    {
-        // Insert your specific rotation code here
-        // For example: transform.Rotate(...);
     }
 
     void OnCollisionEnter2D(Collision2D collision)

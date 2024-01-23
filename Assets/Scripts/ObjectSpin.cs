@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class ObjectSpin : MonoBehaviour
 {
-    public float spinSpeed = 100.0f; // Degrees per second
+    public float rotationSpeed = 360.0f; // Speed of rotation, degrees per second
 
     void Update()
     {
-        // Rotate counterclockwise around the Z-axis
-        transform.Rotate(0, 0, -spinSpeed * Time.deltaTime);
+        // Rotate around its local Z-axis
+        transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime, Space.Self);
     }
 }

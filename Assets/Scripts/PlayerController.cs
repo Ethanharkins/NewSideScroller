@@ -67,6 +67,12 @@ public class PlayerController : MonoBehaviour
         if (livesUIManager != null) livesUIManager.SetLivesLocked(false);
     }
 
+    // Method to check if player is invulnerable
+    public bool IsInvulnerable()
+    {
+        return isInvulnerable;
+    }
+
     // Method to handle the player's death
     public void HandleDeath()
     {
