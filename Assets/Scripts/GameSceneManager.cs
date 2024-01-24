@@ -1,9 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events; // Include this for UnityEvent
 
 public class GameSceneManager : MonoBehaviour
 {
+    [System.Serializable]
+    public class SceneChangeEvent : UnityEvent<string> { }
+
     public static GameSceneManager Instance { get; private set; }
+
+    public SceneChangeEvent onSceneChangeRequest;
 
     void Awake()
     {
@@ -18,9 +24,9 @@ public class GameSceneManager : MonoBehaviour
         }
     }
 
-    public void LoadScene(GameScene gameScene)
+    public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene(gameScene.ToString());
+        SceneManager.LoadScene(sceneName);
     }
 
     public void RestartLevel()
@@ -35,4 +41,6 @@ public class GameSceneManager : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
     }
+
+    // Other methods...
 }
