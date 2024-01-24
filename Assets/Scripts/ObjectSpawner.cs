@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ObjectSpawner : MonoBehaviour
 {
@@ -10,8 +9,7 @@ public class ObjectSpawner : MonoBehaviour
 
     void Start()
     {
-        // Start spawning objects after a delay of 3 seconds (adjust as needed)
-        Invoke("StartSpawning", 3f);
+        timer = spawnInterval;
     }
 
     void Update()
@@ -43,13 +41,13 @@ public class ObjectSpawner : MonoBehaviour
         // Example: Destroy(spawnedObject, 7f);
     }
 
-    // Method to start spawning (called from GameManager or your scene management system)
+    // Method to start spawning
     public void StartSpawning()
     {
         isSpawning = true;
     }
 
-    // Method to stop spawning (called from GameManager or your scene management system)
+    // Method to stop spawning
     public void StopSpawning()
     {
         isSpawning = false;

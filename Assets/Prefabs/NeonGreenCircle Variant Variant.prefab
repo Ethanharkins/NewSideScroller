@@ -12,6 +12,10 @@ PrefabInstance:
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1626538066, guid: b26188af9d70d944e8b9c33083f4fabc, type: 3}
+      propertyPath: collisionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: be016e70580e91c4f8a8f9e7701b00d4, type: 3}
+    - target: {fileID: 1626538066, guid: b26188af9d70d944e8b9c33083f4fabc, type: 3}
       propertyPath: movementDirection.x
       value: 1
       objectReference: {fileID: 0}
@@ -103,5 +107,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5102404327600414130, guid: b26188af9d70d944e8b9c33083f4fabc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b26188af9d70d944e8b9c33083f4fabc, type: 3}

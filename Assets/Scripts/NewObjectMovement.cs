@@ -20,4 +20,14 @@ public class NewObjectMovement : MonoBehaviour
         pos -= transform.right * Time.deltaTime * speed;
         transform.position = pos + transform.up * Mathf.Sin(totalRun * frequency) * magnitude;
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // Check if the object collided with an object tagged as "Player" and is marked as a trigger
+        if (other.CompareTag("Player") && other.isTrigger)
+        {
+            // Destroy the enemy object
+            Destroy(gameObject);
+        }
+    }
 }

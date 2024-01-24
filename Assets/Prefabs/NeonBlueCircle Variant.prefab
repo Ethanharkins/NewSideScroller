@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4474519807180113634}
   - component: {fileID: 1434505021546628937}
   - component: {fileID: 481410439089064607}
-  - component: {fileID: 3872147145144279009}
   - component: {fileID: 6090437298051725577}
   m_Layer: 0
   m_Name: NeonBlueCircle Variant
@@ -103,27 +102,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
---- !u!50 &3872147145144279009
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5462017955005879471}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
 --- !u!114 &6090437298051725577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,3 +115,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  collisionSound: {fileID: 8300000, guid: be016e70580e91c4f8a8f9e7701b00d4, type: 3}

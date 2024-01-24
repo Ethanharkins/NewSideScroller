@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: spinSpeed
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1655938163, guid: e48407605db6f1e4db9d1ad11592ef3f, type: 3}
+      propertyPath: collisionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: be016e70580e91c4f8a8f9e7701b00d4, type: 3}
     - target: {fileID: 859894753534722442, guid: e48407605db6f1e4db9d1ad11592ef3f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -131,5 +135,6 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 859894753538562778, guid: e48407605db6f1e4db9d1ad11592ef3f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e48407605db6f1e4db9d1ad11592ef3f, type: 3}

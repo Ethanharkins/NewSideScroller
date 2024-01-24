@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Survival.unity
     guid: 01ca6167c1306af459cc33a9bfb67807
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: b491fa45b716e8d4aa598c8982bb56ee
   m_configObjects: {}

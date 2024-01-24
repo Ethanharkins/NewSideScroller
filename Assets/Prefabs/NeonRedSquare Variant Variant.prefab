@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9199364691934500094, guid: a98373303a223284ab1c95a72d5fcf5e, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9199364691934500094, guid: a98373303a223284ab1c95a72d5fcf5e, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
@@ -113,6 +113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 521877983, guid: a98373303a223284ab1c95a72d5fcf5e, type: 3}
+    - {fileID: 9199364691935495764, guid: a98373303a223284ab1c95a72d5fcf5e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a98373303a223284ab1c95a72d5fcf5e, type: 3}
 --- !u!1 &3118988579978223439 stripped
 GameObject:
@@ -131,6 +132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a6ec24feed3c7e4bbf870aef901dcb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  frequency: 2
-  magnitude: 6
+  speed: 2
+  frequency: 1
+  magnitude: 5
